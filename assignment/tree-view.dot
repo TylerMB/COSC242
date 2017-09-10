@@ -1,0 +1,32 @@
+digraph tree {
+node [shape = Mrecord, penwidth = 2];
+"number"[label="{<f0>number:1|{<f1>|<f2>}}"color=black];
+"small"[label="{<f0>small:1|{<f1>|<f2>}}"color=black];
+"very"[label="{<f0>very:1|{<f1>|<f2>}}"color=red];
+"words"[label="{<f0>words:1|{<f1>|<f2>}}"color=black];
+"very":f1 -> "words":f0;
+"some"[label="{<f0>some:1|{<f1>|<f2>}}"color=black];
+"the"[label="{<f0>the:1|{<f1>|<f2>}}"color=red];
+"some":f1 -> "the":f0;
+"very":f2 -> "some":f0;
+"small":f1 -> "very":f0;
+"of"[label="{<f0>of:1|{<f1>|<f2>}}"color=black];
+"poem"[label="{<f0>poem:1|{<f1>|<f2>}}"color=red];
+"of":f1 -> "poem":f0;
+"small":f2 -> "of":f0;
+"number":f1 -> "small":f0;
+"are"[label="{<f0>are:1|{<f1>|<f2>}}"color=black];
+"little"[label="{<f0>little:1|{<f1>|<f2>}}"color=red];
+"mary"[label="{<f0>mary:1|{<f1>|<f2>}}"color=black];
+"little":f1 -> "mary":f0;
+"from"[label="{<f0>from:1|{<f1>|<f2>}}"color=black];
+"lamb"[label="{<f0>lamb:1|{<f1>|<f2>}}"color=red];
+"from":f1 -> "lamb":f0;
+"little":f2 -> "from":f0;
+"are":f1 -> "little":f0;
+"a"[label="{<f0>a:1|{<f1>|<f2>}}"color=black];
+"and"[label="{<f0>and:1|{<f1>|<f2>}}"color=red];
+"a":f1 -> "and":f0;
+"are":f2 -> "a":f0;
+"number":f2 -> "are":f0;
+}
