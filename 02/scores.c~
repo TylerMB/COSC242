@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void){
+
+    double s1, s2 , s3;
+    if (3==scanf("%lg%lg%lg", &s1,&s2,&s3)){
+        
+        fflush(stdout);
+        if (s1 < s2 && s1 < s3 ){
+       
+            printf ("Your result is: %f",(s2 + s3) /2);
+        
+                    }else if(s2 < s1 && s2 < s3){
+       
+                printf ("Your result is: %f",(s1 + s3) /2);
+
+            }else{
+       
+                printf ("Your result is: %f",(s1 + s2)/ 2);
+            }
+            
+        }
+    return EXIT_FAILURE;
+    }
+        

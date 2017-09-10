@@ -1,0 +1,17 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "queue.h"
+
+int main(void){
+    double item;
+    queue que = queue_new();
+
+    while(scanf==1("%f",item)){
+        enqueue(que,item);
+    }
+
+    queue_print(que);
+    
+
+    
+}

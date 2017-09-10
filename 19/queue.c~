@@ -1,0 +1,53 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "queue.h"
+
+struct queue{
+    double *items;
+    int head;
+    int capacity;
+    int num_items;
+};
+
+queue queue_new(){
+
+    result = malloc(sizeof *result);
+    result -> head =0;
+    result -> capacity=5;
+    result ->items = malloc(result -> capacity *sizeof result->item[0]);
+    result -> num_items=0;
+ 
+    return result; 
+}
+
+void enqueue (queue q,double item){
+    
+    if(q->num_items < q->capacity){
+    int index=(q->head + q->num_items)%q->capacity;
+    q->items[index] = item;
+    q->num_items++;
+    }else{
+        fprintf(stderr,"Capaicity too small");
+    }
+
+}
+
+double dequeue(queue q){
+
+}
+
+void queue_print(queue q){
+    int i;
+    for(i=0; i < q->capacity; i++){
+        printf("%d",q->items[i]);
+
+}
+
+int queue_size(queue q){
+
+}
+
+queue queue_free(queue q){
+    free(q->items);
+    free(q);
+}

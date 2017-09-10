@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "bst.h"
+
+
+bst bst_new(){
+
+}
+
+bst bst_delete(bst b, char *str){
+
+}
+
+void bst_inorder(bst b, void f (char *str)){
+
+}
+
+bst bst_insert(bst b, char *str){
+
+}
+
+void bst_preorder(bst b, void f (char *str)){
+
+}
+
+int bst_search(bst b, char *key){
+
+}
+
+
+
+
+    

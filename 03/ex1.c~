@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*scanf requires having the '&' symbol in front of the variable as its needs
+ *to know where the variable is located before hand.
+ */
+
+void max_min(int *a, int n, int *max, int *min){
+
+}
+
+int main(void){
+
+    return EXIT_SUCCESS; 
+}

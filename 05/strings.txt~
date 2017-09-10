@@ -1,0 +1,9 @@
+a) to set the memory allocations before using them
+b) char array
+c)
+d) yes
+e) prints out string and the rest are fill with whitespaces
+f) do\0 random char
+   cats\0 random char
+   eat\0 random char
+   bats\0 random char 

@@ -1,0 +1,22 @@
+
+
+
+
+
+a) to set the memory allocations before using them
+b) char 
+c) strlen require the count of the terminator \0
+d) yes
+e) prints out string and the rest are fill with garbage symbols
+f) do\0 random char
+   cats\0 random char
+   eat\0 random char
+   bats\0 random char
+
+
+char* wordlis[4];
+   
+   wordlist = {|, NULL, NULL, NULL}
+               |
+               v
+              {d, o, \0}

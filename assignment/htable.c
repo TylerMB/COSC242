@@ -1,0 +1,118 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "htable.h"
+#include "mylib.h" 
+
+struct htablerec{
+    char **keys;
+    int *frequencies;
+    int num_keys;
+    int capacity;
+
+};
+
+htable htable_new(int capacity){
+    int i; 
+
+    htable table = emalloc (sizeof *table);
+    table -> capacity = capacity;
+    table -> num_keys =0;
+    table -> frequencies = emalloc(capacity *sizeof (int));
+    table -> keys = emalloc(capacity *sizeof (char*) );
+
+    for(i=0; i < capacity; i++){
+        table -> keys[i] = NULL;
+        table -> frequencies[i]=0;
+    }
+    
+    return table; 
+    
+}
+
+void htable_free(htable h){
+    int i;
+    for(i=0; i < h-> capacity ; i++){
+        if(h->keys[i] != NULL){
+            free(h->keys[i]);
+        }
+    
+    }
+    free(h->keys);
+    free(h->frequencies);
+    free(h);   
+}
+
+
+
+static unsigned int htable_word_to_int(char *word){
+
+    unsigned int result = 0;
+
+    while (*word != '\0'){
+        result = (*word++ + 31 * result);
+    }
+    return result;
+}
+
+static unsigned int htable_step(htable h, unsigned int i_key){
+    return 1 + (i_key % (h-> capacity -1));
+}
+
+
+  
+int htable_insert(htable h, char *str){
+
+    int i = htable_word_to_int(str) %h->capacity;
+    int collision =0;
+    int step = htable_step(h,i);
+  
+    while(collision < h->capacity){
+        if(h-> keys[i] == NULL){
+            h->keys[i] = emalloc ((strlen(str)+1) * sizeof *str ); 
+            strcpy(h->keys[i],str);
+            h->frequencies[i] =1;
+            h->num_keys++;
+            return 1; 
+        }
+
+        if(0 == strcmp(h->keys[i],str)){
+            h-> frequencies[i]++;
+            return h->frequencies[i];
+        }
+
+        i+=step;
+        collision++;
+
+        i = i % h->capacity;
+    }
+    
+    return 0;
+
+      
+}
+
+int htable_search(htable h ,char *str){
+
+    int collisions=0;
+    int i =htable_word_to_int(str) %h->capacity;
+    int step = htable_step(h,i);
+
+    while(h->keys[i] !=NULL && collisions < h->capacity){
+        if(strcmp(h->keys[i],str) ==0){
+            return h->frequencies[i];
+        }
+        collisions++;
+        i+=step;
+    }
+    return 0;
+}
+
+void htable_print(htable h, FILE *stream){
+    int i;
+    for(i=0; i < h->capacity; i++){
+        if(h->keys[i] != NULL){
+            fprintf(stream,"%d %s\n", h->frequencies[i],h->keys[i]);
+        }
+    }
+}

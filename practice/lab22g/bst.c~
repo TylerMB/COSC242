@@ -1,0 +1,15 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "bst.h"
+#include "mylib.h"
+
+struct bstnode{
+    bst left;
+    bst right;
+    char *key;
+    
+};
+
+bst bst_free(bst b){
+
+}

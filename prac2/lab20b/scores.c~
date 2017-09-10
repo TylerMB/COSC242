@@ -1,0 +1,11 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+
+int main(void){
+
+    double s1,s2,s3,compare;
+
+    while(4==scanf("%d%lg%lg%lg",&s1,&s2,&s3)){
+        
+}

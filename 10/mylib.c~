@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "mylib.h"
+
+void *emalloc(size_t s){
+
+}
+
+void *erealloc(void *p, size_t s){
+
+}
